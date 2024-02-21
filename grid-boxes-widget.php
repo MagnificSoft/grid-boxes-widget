@@ -38,3 +38,26 @@ function grid_box_widget_dependencies() {
 	wp_register_style( 'grid_box_style', plugins_url( 'assets/css/grid-box-widget.css', __FILE__ ) );
 }
 add_action( 'wp_enqueue_scripts', 'grid_box_widget_dependencies' );
+
+add_filter('pre_set_site_transient_update_plugins', 'check_for_plugin_update');
+
+function check_for_plugin_update($checked_data) {
+    global $wp_version, $plugin_version;
+
+    $update_url = 'magnific-soft/grid-boxes-update-info.xml';
+
+    $request = wp_remote_get($update_url);
+
+    if (is_wp_error($request)) {
+        return $checked_data;
+    }
+
+    $xml = simplexml_load_string(wp_remote_retrieve_body($request));
+
+    if (isset($xml->version) && version_compare($plugin_version, $xml->version, '<')) {
+        $checked_data->response[plugin_basename(__FILE__)] = (array) $xml;
+    }
+
+    return $checked_data;
+}
+
