@@ -1,0 +1,173 @@
+.grid-boxes{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3px;
+    padding-bottom: 10px;
+/*     overflow: hidden; */
+}
+
+.grid-box{
+    flex: 1 1 4%;
+    transition: 0.5s linear;
+}
+.grid-box .grid-box_content{
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+.grid-box:hover, .active-grid{
+    flex: 1 1 20%;
+}
+.grid-box:hover .grid-hover-boxes, .active-grid .grid-hover-boxes {
+    display: flex;
+}
+.grid-box video, .grid-box p, .grid-box:hover img, .active-grid img{
+    display: none;
+}
+
+.grid-box:hover video, .grid-box:hover p, .active-grid video, .active-grid p{
+    display: block;
+}
+
+/* video */
+.grid-box video{
+    border: 1px solid lightgray;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+/* icon */
+.grid-box .grid-box_content i{
+    position:absolute;
+    bottom: 20px;
+    transform: translateX(-50%);
+    left: 50%;
+    right: 0;
+    display: flex;
+    justify-content: center;
+	z-index: 10;
+}
+
+.grid-box:not(.active-grid) .grid-box_content:after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: black;
+    opacity: 0.2;
+    filter: blur(4px);
+}
+
+.grid-hover-boxes .icon_hover{
+    position: relative;
+    margin-right: 10px;
+}
+
+.grid-hover-boxes .icon_hover:after {
+    content: "";
+    display: flex;
+    background: red;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: scale(1.1) translateX(-50%) translateY(40%);
+    border-radius: 50px;
+    opacity: 0.6;
+    filter: blur(8px)
+}
+
+/* title */
+.grid-box .grid_box_title{
+    top: 70px;
+    position: absolute;
+    transform: translateX(-50%) rotate(90deg);
+    left: 50%;
+    color: white;
+    text-wrap: nowrap;
+    width: 130px;
+}
+
+
+
+
+.grid-box:hover .grid_box_title, .grid-box:hover i:not(.icon_hover), .active-grid .grid_box_title, .active-grid i:not(.icon_hover){
+    display: none;
+}
+
+/* description */
+.grid-box p{
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -0.11999999731779099px;
+    text-align: left;
+    margin: 0;
+}
+
+/* image */
+.grid-box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.grid-hover-boxes{
+    display: none;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* grid line */
+.grid-line{
+    position: absolute;
+    z-index: 100;
+    transition: 0.5s linear;
+}
+
+.grid-line.up_line{
+    top: -125px;
+	transform: translateX(6px);
+}
+
+.grid-line.down_line{
+    top: 360px;
+    transform: rotate(180deg) translateX(-6px);
+}
+
+@media screen and (max-width: 1024px) {
+    .grid-line{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .grid-boxes{
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+    }
+    
+    .grid-box .grid-box_content{
+        height: 220px;
+        min-width: 10%;
+    }
+
+    .grid-box{
+        flex: 1 1 10%;
+        min-width: 10%;
+    }
+    
+    .grid-box:hover, .active-grid{
+        min-width: 60%;
+    }
+
+}
