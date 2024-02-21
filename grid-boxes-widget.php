@@ -2,7 +2,7 @@
 /*
 Plugin Name: Grid Boxes Widget for Elementor
 Description: Grid Boxes Widget for Elementor.
-Version: 1.0
+Version: 1.0.1
 Author: MagnificSoft
 Text Domain: grid-boxes-widget
 */
