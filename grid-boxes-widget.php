@@ -39,9 +39,3 @@ function grid_box_widget_dependencies() {
 }
 add_action( 'wp_enqueue_scripts', 'grid_box_widget_dependencies' );
 
-require 'path/to/plugin-update-checker/plugin-update-checker.php';
-$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'magnific-soft/wp-content/plugins/grid-boxes-widget/grid-boxes-widget.php',
-	__FILE__, //Full path to the main plugin file or functions.php.
-	'unique-plugin-or-theme-slug'
-);
