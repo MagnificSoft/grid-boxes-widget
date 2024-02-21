@@ -44,7 +44,7 @@ add_filter('pre_set_site_transient_update_plugins', 'check_for_plugin_update');
 function check_for_plugin_update($checked_data) {
     global $wp_version, $plugin_version;
 
-    $update_url = 'magnific-soft/grid-boxes-update-info.xml';
+    $update_url = 'http://localhost/magnific-soft/grid-boxes-update-info.xml';
 
     $request = wp_remote_get($update_url);
 
