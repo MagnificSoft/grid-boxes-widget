@@ -1,8 +1,9 @@
 <?php
 /*
 Plugin Name: Grid Boxes Widget for Elementor
+Plagin URL: https://github.com/MagnificSoft/grid-boxes-widget
 Description: Grid Boxes Widget for Elementor.
-Version: 1.0.2
+Version: 1.1.0
 Author: MagnificSoft
 Text Domain: grid-boxes-widget
 */
@@ -14,7 +15,7 @@ if (!defined('ABSPATH')) {
 }
 // Define constant for plugin version
 if (!defined('GRID_BOX_WIDGET_VERSION')) {
-    define('GRID_BOX_WIDGET_VERSION', '1.0');
+    define('GRID_BOX_WIDGET_VERSION', '1.1');
 }
 
 
@@ -39,3 +40,12 @@ function grid_box_widget_dependencies() {
 }
 add_action( 'wp_enqueue_scripts', 'grid_box_widget_dependencies' );
 
+require 'plugin-update-checker/plugin-update-checker.php';
+	$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+		'https://github.com/MagnificSoft/grid-boxes-widget/',
+		__FILE__,
+		'GridBoxes'
+	);
+
+
+	$myUpdateChecker->setBranch('main');
