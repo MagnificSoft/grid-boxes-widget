@@ -3,7 +3,7 @@
 Plugin Name: Grid Boxes Widget for Elementor
 Plagin URL: https://github.com/MagnificSoft/grid-boxes-widget
 Description: Grid Boxes Widget for Elementor.
-Version: 1.2.0
+Version: 1.0
 Author: MagnificSoft
 Text Domain: grid-boxes-widget
 */
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 }
 // Define constant for plugin version
 if (!defined('GRID_BOX_WIDGET_VERSION')) {
-    define('GRID_BOX_WIDGET_VERSION', '1.2');
+    define('GRID_BOX_WIDGET_VERSION', '1.0');
 }
 
 
