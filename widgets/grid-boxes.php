@@ -261,7 +261,7 @@ class Grid_Boxes_Widget extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
-                    '{{CURRENT_ITEM}} i:not(.icon_hover)' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} i:not(.icon_hover)' => 'color: {{VALUE}}',
                 ]
             ]
         );
@@ -273,7 +273,7 @@ class Grid_Boxes_Widget extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'default' => '#000',
                 'selectors' => [
-                    '{{CURRENT_ITEM}} .icon_hover' => 'color: {{VALUE}}',
+                    '{{WRAPPER}} .icon_hover' => 'color: {{VALUE}}',
                 ]
             ]
         );        
